@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DataNucleus Converter using Kryo
+Bundle-SymbolicName: org.datanucleus.store.types.converters.kryo;singleton:=true
+Bundle-Version: 3.2
+Bundle-Localization: plugin
+Bundle-Vendor: DataNucleus
+Require-Bundle: org.datanucleus
+Import-Package: com.esotericsoftware.kryo;version="2.21",
+ com.esotericsoftware.kryo.io;version="2.21"
