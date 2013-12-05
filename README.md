@@ -1,7 +1,7 @@
-type-converter-kryo
-===================
+datanucleus-typeconverter-kryo
+==============================
 
-Kryo Serialisation support for DataNucleus
+Kryo Serialisation TypeConverter support for DataNucleus
 
 This provides a DataNucleus TypeConverter plugin for serialising a field
 using the Kryo library (and additionally applying Base64 encoding).
