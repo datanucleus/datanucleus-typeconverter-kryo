@@ -19,14 +19,11 @@ package org.datanucleus.store.types.converters;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.Serializable;
 
 import org.datanucleus.exceptions.NucleusException;
 import org.datanucleus.store.types.converters.TypeConverter;
 import org.datanucleus.util.Base64;
-import org.datanucleus.util.NucleusLogger;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
