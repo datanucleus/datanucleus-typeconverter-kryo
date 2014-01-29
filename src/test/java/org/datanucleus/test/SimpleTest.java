@@ -34,70 +34,74 @@ public class SimpleTest
         PersistenceManagerFactory pmf = null;
         try
         {
-        pmf = JDOHelper.getPersistenceManagerFactory("MyTest");
+            pmf = JDOHelper.getPersistenceManagerFactory("MyTest");
 
-        PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx = pm.currentTransaction();
-        Object id = null;
-        try
-        {
-            tx.begin();
-
-            Sample s1 = new Sample(1, "A very long string that will be serialised using Kryo");
-            pm.makePersistent(s1);
-
-            tx.commit();
-            id = pm.getObjectId(s1);
-        }
-        catch (Throwable thr)
-        {
-            NucleusLogger.GENERAL.error(">> Exception thrown persisting data", thr);
-            fail("Failed to persist data : " + thr.getMessage());
-        }
-        finally 
-        {
-            if (tx.isActive())
+            PersistenceManager pm = pmf.getPersistenceManager();
+            Transaction tx = pm.currentTransaction();
+            Object id = null;
+            try
             {
-                tx.rollback();
+                tx.begin();
+
+                Sample s1 = new Sample(1, "A very long string that will be serialised using Kryo");
+                pm.makePersistent(s1);
+
+                tx.commit();
+                id = pm.getObjectId(s1);
             }
-            pm.close();
-        }
-        pmf.getDataStoreCache().evictAll();
-
-        pm = pmf.getPersistenceManager();
-        tx = pm.currentTransaction();
-        try
-        {
-            tx.begin();
-
-            Sample s = (Sample)pm.getObjectById(id);
-            NucleusLogger.GENERAL.info(">> getObjectById => " + s);
-
-            tx.commit();
-        }
-        catch (Throwable thr)
-        {
-            NucleusLogger.GENERAL.error(">> Exception thrown querying data", thr);
-            fail("Failed to query data : " + thr.getMessage());
-        }
-        finally 
-        {
-            if (tx.isActive())
+            catch (Throwable thr)
             {
-                tx.rollback();
+                NucleusLogger.GENERAL.error(">> Exception thrown persisting data", thr);
+                fail("Failed to persist data : " + thr.getMessage());
             }
-            pm.close();
-        }
- 
+            finally 
+            {
+                if (tx.isActive())
+                {
+                    tx.rollback();
+                }
+                pm.close();
+            }
+            pmf.getDataStoreCache().evictAll();
+
+            pm = pmf.getPersistenceManager();
+            tx = pm.currentTransaction();
+            try
+            {
+                tx.begin();
+
+                Sample s = (Sample)pm.getObjectById(id);
+                NucleusLogger.GENERAL.info(">> getObjectById => " + s);
+
+                tx.commit();
+            }
+            catch (Throwable thr)
+            {
+                NucleusLogger.GENERAL.error(">> Exception thrown querying data", thr);
+                fail("Failed to query data : " + thr.getMessage());
+            }
+            finally 
+            {
+                if (tx.isActive())
+                {
+                    tx.rollback();
+                }
+                pm.close();
+            }
+
         }
         catch (Exception e)
         {
             NucleusLogger.GENERAL.info(">> exception thrown by test", e);
+            fail("Exception thrown running test : " + e.getMessage());
         }
         finally
         {
-        pmf.close();
-        NucleusLogger.GENERAL.info(">> test END");
+            if (pmf != null)
+            {
+                pmf.close();
+            }
+            NucleusLogger.GENERAL.info(">> test END");
         }
     }
 }
