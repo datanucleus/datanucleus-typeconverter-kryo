@@ -49,9 +49,6 @@ public class KryoSerialiseStringConverter implements TypeConverter<Serializable,
         return (Kryo)value;
     }
 
-    /* (non-Javadoc)
-     * @see org.datanucleus.store.types.converters.TypeConverter#toDatastoreType(java.lang.Object)
-     */
     public String toDatastoreType(Serializable memberValue)
     {
         if (memberValue == null)
@@ -77,9 +74,6 @@ public class KryoSerialiseStringConverter implements TypeConverter<Serializable,
         return str;
     }
 
-    /* (non-Javadoc)
-     * @see org.datanucleus.store.types.converters.TypeConverter#toMemberType(java.lang.Object)
-     */
     public Serializable toMemberType(String datastoreValue)
     {
         if (datastoreValue == null)
