@@ -5,7 +5,7 @@
     <groupId>org.datanucleus</groupId>
     <artifactId>datanucleus-converter-kryo</artifactId>
     <packaging>jar</packaging>
-    <version>3.2</version>
+    <version>4.0.0-m1-SNAPSHOT</version>
     <name>DataNucleus AccessPlatform Converter using Kryo</name>
     <url>http://www.datanucleus.org</url>
 
@@ -34,7 +34,7 @@
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-core</artifactId>
-            <version>[3.2.0-release, )</version>
+            <version>[4.0.0-m1-SNAPSHOT, )</version>
         </dependency>
         <dependency>
             <groupId>javax.jdo</groupId>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-rdbms</artifactId>
-            <version>[3.2.0-release, )</version>
+            <version>[4.0.0-m1-SNAPSHOT, )</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -75,7 +75,7 @@
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-api-jdo</artifactId>
-            <version>[3.2.0-release, )</version>
+            <version>[4.0.0-m1-SNAPSHOT, )</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -133,12 +133,12 @@
             <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>datanucleus-maven-plugin</artifactId>
-                <version>3.3.2</version>
+                <version>4.0.0-m1-SNAPSHOT</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.datanucleus</groupId>
                         <artifactId>datanucleus-api-jdo</artifactId>
-                        <version>[3.2.0-release, )</version>
+                        <version>[4.0.0-m1-SNAPSHOT, )</version>
                     </dependency>
                 </dependencies>
                 <configuration>
