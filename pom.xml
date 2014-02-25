@@ -6,7 +6,7 @@
     <artifactId>datanucleus-converter-kryo</artifactId>
     <packaging>jar</packaging>
     <version>4.0.0-m1-SNAPSHOT</version>
-    <name>DataNucleus AccessPlatform Converter using Kryo</name>
+    <name>DataNucleus TypeConverter for serialising using Kryo</name>
     <url>http://www.datanucleus.org</url>
 
     <repositories>
