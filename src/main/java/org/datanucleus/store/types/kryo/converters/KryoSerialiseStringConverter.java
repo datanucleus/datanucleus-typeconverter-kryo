@@ -15,7 +15,7 @@ limitations under the License.
 Contributors:
     ...
 **********************************************************************/
-package org.datanucleus.store.types.converters;
+package org.datanucleus.store.types.kryo.converters;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

@@ -3,6 +3,6 @@
     <!-- TYPE CONVERTERS -->
     <extension point="org.datanucleus.type_converter">
         <type-converter name="kryo-serialise" member-type="java.lang.Serializable" datastore-type="java.lang.String"
-            converter-class="org.datanucleus.store.types.converters.KryoSerialiseStringConverter"/>
+            converter-class="org.datanucleus.store.types.kryo.converters.KryoSerialiseStringConverter"/>
     </extension>
 </plugin>
