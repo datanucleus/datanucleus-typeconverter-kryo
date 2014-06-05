@@ -36,15 +36,15 @@ import com.esotericsoftware.kryo.io.Output;
  */
 public class KryoSerialiseStringConverter implements TypeConverter<Serializable, String>
 {
-    ThreadLocal kryo = new ThreadLocal();
+    ThreadLocal kryoLocal = new ThreadLocal();
 
     public Kryo getKryo()
     {
-        Object value = this.kryo.get();
+        Object value = this.kryoLocal.get();
         if (value == null)
         {
             value = new Kryo();
-            this.kryo.set(value);
+            this.kryoLocal.set(value);
         }
         return (Kryo)value;
     }
