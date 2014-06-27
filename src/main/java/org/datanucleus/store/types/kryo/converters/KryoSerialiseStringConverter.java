@@ -36,6 +36,8 @@ import com.esotericsoftware.kryo.io.Output;
  */
 public class KryoSerialiseStringConverter implements TypeConverter<Serializable, String>
 {
+    private static final long serialVersionUID = -5136560834092929787L;
+
     ThreadLocal kryoLocal = new ThreadLocal();
 
     public Kryo getKryo()
