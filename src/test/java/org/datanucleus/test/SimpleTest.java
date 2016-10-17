@@ -39,11 +39,12 @@ public class SimpleTest
             PersistenceManager pm = pmf.getPersistenceManager();
             Transaction tx = pm.currentTransaction();
             Object id = null;
+            String longString = "A very long string that will be serialised using Kryo";
             try
             {
                 tx.begin();
 
-                Sample s1 = new Sample(1, "A very long string that will be serialised using Kryo");
+                Sample s1 = new Sample(1, longString);
                 pm.makePersistent(s1);
 
                 tx.commit();
@@ -72,6 +73,7 @@ public class SimpleTest
 
                 Sample s = (Sample)pm.getObjectById(id);
                 NucleusLogger.GENERAL.info(">> getObjectById => " + s);
+                assertEquals(longString, s.getLongString());
 
                 tx.commit();
             }
